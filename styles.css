@@ -19,8 +19,8 @@ meter, progress, output {
 div#tswsidecol {
 	float: right ;
 	width: 20% ;
-	color: #000 ;
-	background-color: #fff ;
+	color: #f3ef07 ;
+	background-color: #f3ef07 ;
 }
 div#tswcontent {
 	float: right ;
@@ -53,9 +53,9 @@ div#tswothersideproper {
 }
 div#tswheader {
 	color: #000 ;
-	background-color: #fff ;
+	background-color: #f3ef07 ;
 }
 div#tswfooter {
 	color: #000 ;
-	background-color: #fff ;
+	background-color: #f3ef07 ;
 }
