@@ -1,11 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
+  <div class="board-controls">
+    <label for="board-selector">Choose a Board:</label>
+    <select id="board-selector">
+        <!-- Options will be added by JavaScript -->
+    </select>
+  </div>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <title>Word Fold</title>
   <link href="game.css" rel="stylesheet">
   <script src="game.js" defer></script>
+  <style>
+        /* The container for the cells */
+        #cell-holder {
+            position: relative; /* Establishes a coordinate system for the cells */
+            width: 450px;
+            height: 450px;
+            border: 2px solid #333;
+            background-color: #f0f0f0;
+            overflow: hidden; /* Crucial for keeping the cells contained */
+        }
+
+        /* This targets the individual cells */
+        #cell-holder > div {
+            position: absolute; /* Allows us to control position with top/left */
+            width: 60px;
+            height: 60px;
+            
+            /* Optional: for better appearance */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #333;
+            background-color: white;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            box-sizing: border-box; /* Ensures padding/border are included in width/height */
+            user-select: none; /* Prevents text selection */
+        }
+    </style>
 </head>
 
 <body>

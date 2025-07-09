@@ -1,6 +1,5 @@
 const boards = [
     {
-        name: "Colors",
         cells: [
             ["E", "L", "W", "Y", "C"],
             ["Y", "L", "O", "A", "N"],
@@ -10,7 +9,6 @@ const boards = [
         words: ["CYAN", "YELLOW", "PURPLE", "MAUVE", "BLUE"]
     },
     {
-        name: "Animals",
         cells: [
             ["E", "K", "O", "A", "P"],
             ["A", "W", "L", "I", "R"],
@@ -20,7 +18,6 @@ const boards = [
         words: ["TAPIR", "EAGLE", "JAGUAR", "SNAKE", "WOLF"]
     },
     {
-        name: "Fruits",
         cells: [
             ["H", "C", "N", "A", "N"],
             ["Y", "R", "A", "A", "A"],
@@ -31,108 +28,48 @@ const boards = [
     },
 ]
 
-// --- Global State Variables ---
-// A flat list of cell objects for the animation loop
-const bouncingCells = [];
-// A 2D grid of the same cell objects for game logic
-let logicalGrid = [];
-// The coordinates of the currently selected cell in the logical grid
+function make_cell_list() {
+    let cells = [...document.getElementById("cell-holder").children];
+    let cell_board = [];
+    for (let i = 0; i < 25; i += 5) {
+        cell_board.push(cells.slice(i, i + 5))
+    }
+    return cell_board;
+}
+
+function setup_game(starting_cells) {
+    for (let x = 0; x < 5; x++) {
+        for (let y = 0; y < 5; y++) {
+            CELLS[y][x].innerHTML = starting_cells[y][x];
+        }
+    }
+}
+
+const CELLS = make_cell_list();
 let selected_x = -1;
 let selected_y = -1;
 
-function loadBoard(boardIndex) {
-    const board = boards[boardIndex];
-    if (!board) {
-        console.error("Invalid board index:", boardIndex);
-        return;
-    }
+setup_game(boards[0].cells)
+document.getElementById("words").innerHTML = "Words to spell: " + boards[0].words.join(", ")
 
-    // --- Reset and Set Up Board ---
-    unselect();
-    bouncingCells.length = 0;
-    logicalGrid = [];
-
-    const cellElements = [...document.getElementById("cell-holder").children];
-    const container = document.getElementById("cell-holder");
-    const speed = 1.5;
-    let tempRow = [];
-
-    cellElements.forEach((element, index) => {
-        const gridY = Math.floor(index / 5);
-        const gridX = index % 5;
-        const angle = Math.random() * 2 * Math.PI;
-        const cellWidth = element.offsetWidth || 60;
-        const cellHeight = element.offsetHeight || 60;
-
-        const cellObject = {
-            element: element,
-            gridX: gridX,
-            gridY: gridY,
-            x: Math.random() * (container.clientWidth - cellWidth),
-            y: Math.random() * (container.clientHeight - cellHeight),
-            dx: Math.cos(angle) * speed,
-            dy: Math.sin(angle) * speed,
-            width: cellWidth,
-            height: cellHeight
-        };
-
-        // Link the click event on the visual element to the logical grid position
-        element.onclick = () => on_click(gridX, gridY);
-
-        // Set the initial letter from the board data
-        element.innerHTML = board.cells[gridY][gridX];
-
-        bouncingCells.push(cellObject);
-        tempRow.push(cellObject);
-
-        if (tempRow.length === 5) {
-            logicalGrid.push(tempRow);
-            tempRow = [];
-        }
-    });
-
-    document.getElementById("words").innerHTML = "Words to spell: " + board.words.join(", ");
-}
-
-function populateSelector() {
-    const boardSelector = document.getElementById("board-selector");
-    boards.forEach((board, index) => {
-        const option = document.createElement("option");
-        option.value = index;
-        option.textContent = board.name;
-        boardSelector.appendChild(option);
-    });
-
-    boardSelector.addEventListener('change', (event) => {
-        loadBoard(event.target.value);
-    });
-}
 
 function move(x, y) {
-    const sourceCell = logicalGrid[selected_y][selected_x];
-    const destCell = logicalGrid[y][x];
-
-    // Update the text content of the actual DOM elements
-    destCell.element.innerHTML = sourceCell.element.innerHTML + destCell.element.innerHTML;
-    sourceCell.element.innerHTML = "";
-
+    CELLS[y][x].innerHTML = CELLS[selected_y][selected_x].innerHTML + CELLS[y][x].innerHTML;
+    CELLS[selected_y][selected_x].innerHTML = ""
     select(x, y);
 }
 
-function unselect() {
-    // Check if the grid exists and a cell is selected
-    if (logicalGrid.length > 0 && selected_x >= 0 && selected_y >= 0) {
-        logicalGrid[selected_y][selected_x].element.classList.remove("selected");
-    }
+function unselect(x, y) {
+    CELLS[y][x].classList.remove("selected");
     selected_x = -1;
     selected_y = -1;
 }
 
 function select(x, y) {
-    const cell = logicalGrid[y][x];
-    if (cell.element.innerHTML.length > 0) {
-        unselect(); // Clear any previous selection first
-        cell.element.classList.add("selected");
+    if (CELLS[y][x].innerHTML.length > 0) {
+        if (selected_x >= 0 && selected_y >= 0)
+            CELLS[selected_y][selected_x].classList.remove("selected");
+        CELLS[y][x].classList.add("selected");
         selected_y = y;
         selected_x = x;
     }
@@ -143,19 +80,14 @@ function is_close(a, b) {
 }
 
 function can_move(x, y) {
-    const isAdjacent = (is_close(selected_x, x) && selected_y == y) || (is_close(selected_y, y) && selected_x == x);
+    let can_move = is_close(selected_x, x) && selected_y == y || is_close(selected_y, y) && selected_x == x;
 
-    if (selected_x === -1 || !isAdjacent) {
-        return false;
-    }
-
-    // Check the destination cell's element to see if it's empty
-    return logicalGrid[y][x].element.innerHTML.length > 0;
+    return selected_x >= 0 && selected_y >= 0 && can_move && CELLS[y][x].innerHTML.length > 0
 }
 
 function on_click(x, y) {
     if (selected_x == x && selected_y == y) {
-        unselect()
+        unselect(x, y)
     }
     else if (can_move(x, y)) {
         move(x, y)
@@ -163,38 +95,3 @@ function on_click(x, y) {
         select(x, y)
     }
 }
-
-function animate() {
-    const container = document.getElementById("cell-holder");
-    const containerWidth = container.clientWidth;
-    const containerHeight = container.clientHeight;
-
-    bouncingCells.forEach(cell => {
-        // Update position based on velocity
-        cell.x += cell.dx;
-        cell.y += cell.dy;
-
-        // Check for wall collisions and reverse direction
-        if (cell.x <= 0 || (cell.x + cell.width) >= containerWidth) {
-            cell.dx *= -1;
-        }
-        if (cell.y <= 0 || (cell.y + cell.height) >= containerHeight) {
-            cell.dy *= -1;
-        }
-
-        // Clamp position to ensure cells don't get stuck out of bounds
-        cell.x = Math.max(0, Math.min(cell.x, containerWidth - cell.width));
-        cell.y = Math.max(0, Math.min(cell.y, containerHeight - cell.height));
-
-        // Apply the new position to the element's style
-        cell.element.style.left = cell.x + 'px';
-        cell.element.style.top = cell.y + 'px';
-    });
-
-    requestAnimationFrame(animate); // Loop the animation
-}
-
-// Initial game setup
-populateSelector();
-loadBoard(0); // Load the first board by default
-animate(); // Start the animation loop
