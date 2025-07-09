@@ -19,14 +19,14 @@ meter, progress, output {
 div#tswsidecol {
 	float: right ;
 	width: 20% ;
-	color: #f3ef07 ;
-	background-color: #f3ef07 ;
+	color: #bbb81e ;
+	background-color: #bbb81e ;
 }
 div#tswcontent {
 	float: right ;
 	width: 80% ;
 	color: #000 ;
-	background-color: #f3ef07 ;
+	background-color: #bbb81e ;
 }
 @media only screen and (max-width: 629px) {
 	div#tswsidecol {
@@ -44,7 +44,7 @@ div#tswcontproper {
 }
 div#tswcontainer {
 	color: inherit ;
-	background-color: #f3ef07 ;
+	background-color: #bbb81e ;
 }
 div#tswsideproper,
 div#tswothersideproper {
@@ -53,9 +53,9 @@ div#tswothersideproper {
 }
 div#tswheader {
 	color: #000 ;
-	background-color: #f3ef07 ;
+	background-color: #bbb81e ;
 }
 div#tswfooter {
 	color: #000 ;
-	background-color: #f3ef07 ;
+	background-color: #bbb81e ;
 }
