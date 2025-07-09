@@ -27,92 +27,29 @@ function onlmbclick(event){
     setTimeout(start_rainbow,1000)        
 }
 
-// Listen for changes on the input field
-input.addEventListener('input', (event) => {
-    const currentValue = event.target.value;
-
-    // Check for a specific value, ignoring case
-    if (currentValue.toLowerCase() === '66') {
-        alert('Gaster?');
-    }
-});
-
-// Listen for changes on the input field
-input.addEventListener('input', (event) => {
-    const currentValue = event.target.value;
-
-    // Check for a specific value, ignoring case
-    if (currentValue.toLowerCase() === 'sam?') {
-        alert('What?');
-    }
-});
+// A map of trigger phrases to alert messages for the input field
+const secretAlerts = {
+    '66': 'Gaster?',
+    'sam?': 'What?',
+    'seven min': 'Do not even try to finish that sentence.',
+    'seven minutes': 'is the time it did not take for you to spare with this secret unless it did in which case...wtf.',
+    'joe': 'When is part 4?',
+    'frontiers': 'RIP Fan 3',
+    'gif': 'I can not put a gif here',
+    'speedrunning speed': 'Are they ready for the chaos we can release?',
+    'smash': 'Colors weaving into a spire of flames. Distant sparks call to a past still unnamed. Bear this torch against the cold of the night. Search your soul and reawaken the undying light'
+};
 
 // Listen for changes on the input field
 input.addEventListener('input', (event) => {
-    const currentValue = event.target.value;
+    const currentValue = event.target.value.toLowerCase();
+    const message = secretAlerts[currentValue];
 
-    // Check for a specific value, ignoring case
-    if (currentValue.toLowerCase() === 'seven min') {
-        alert('Do not even try to finish that sentence.');
-    }
-});
-
-// Listen for changes on the input field
-input.addEventListener('input', (event) => {
-    const currentValue = event.target.value;
-
-    // Check for a specific value, ignoring case
-    if (currentValue.toLowerCase() === 'seven minutes') {
-        alert('is the time it did not take for you to spare with this secret unless it did in which case...wtf.');
-    }
-});
-
-// Listen for changes on the input field
-input.addEventListener('input', (event) => {
-    const currentValue = event.target.value;
-
-    // Check for a specific value, ignoring case
-    if (currentValue.toLowerCase() === 'joe') {
-        alert('When is part 4?');
-    }
-});
-
-// Listen for changes on the input field
-input.addEventListener('input', (event) => {
-    const currentValue = event.target.value;
-
-    // Check for a specific value, ignoring case
-    if (currentValue.toLowerCase() === 'frontiers') {
-        alert('RIP Fan 3');
-    }
-});
-
-// Listen for changes on the input field
-input.addEventListener('input', (event) => {
-    const currentValue = event.target.value;
-
-    // Check for a specific value, ignoring case
-    if (currentValue.toLowerCase() === 'gif') {
-        alert('I can not put a gif here');
-    }
-});
-
-// Listen for changes on the input field
-input.addEventListener('input', (event) => {
-    const currentValue = event.target.value;
-
-    // Check for a specific value, ignoring case
-    if (currentValue.toLowerCase() === 'speedrunning speed') {
-        alert('Are they ready for the chaos we can release?');
-    }
-});
-
-// Listen for changes on the input field
-input.addEventListener('input', (event) => {
-    const currentValue = event.target.value;
-
-    // Check for a specific value, ignoring case
-    if (currentValue.toLowerCase() === 'smash') {
-        alert('Colors weaving into a spire of flames. Distant sparks call to a past still unnamed. Bear this torch against the cold of the night. Search your soul and reawaken the undying light');
+    // If the input value matches a key in our secretAlerts object...
+    if (message) {
+        // ...wait 1 second, then show the alert.
+        setTimeout(() => {
+            alert(message);
+        }, 100); // 100 milliseconds = 0.1 second
     }
 });
