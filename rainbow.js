@@ -37,7 +37,12 @@ const secretAlerts = {
     'frontiers': 'RIP Fan 3',
     'gif': 'I can not put a gif here',
     'speedrunning speed': 'Are they ready for the chaos we can release?',
-    'smash': 'Colors weaving into a spire of flames. Distant sparks call to a past still unnamed. Bear this torch against the cold of the night. Search your soul and reawaken the undying light'
+    'smash': 'Colors weaving into a spire of flames. Distant sparks call to a past still unnamed. Bear this torch against the cold of the night. Search your soul and reawaken the undying light',
+    '69': 'Nice',
+    'lukas': 'Poyo',
+    'ethan': 'Clearly you do not own an airfryer Ethan',
+    'clarah': 'REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO',
+    'hannah': 'The secret bangers'
 };
 
 // Listen for changes on the input field
