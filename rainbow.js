@@ -42,7 +42,9 @@ const secretAlerts = {
     'lukas': 'Poyo',
     'ethan': 'Clearly you do not own an airfryer Ethan',
     'clarah': 'REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO',
-    'hannah': 'The secret bangers'
+    'hannah': 'The secret bangers',
+    'damien' : 'Admit it.',
+    'iain' : 'Please do not hit me with your dictionary'
 };
 
 // Listen for changes on the input field
