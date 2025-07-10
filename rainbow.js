@@ -32,7 +32,7 @@ const secretAlerts = {
     '66': 'Gaster?',
     'sam?': 'What?',
     'seven min': 'Do not even try to finish that sentence.',
-    'seven minutes': 'is the time it did not take for you to spare with this secret unless it did in which case...wtf.',
+    'seven minutes': 'is not the time it took for you to find this secret, unless it did in which case...wtf.',
     'joe': 'When is part 4?',
     'frontiers': 'RIP Fan 3',
     'gif': 'I can not put a gif here',

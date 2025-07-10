@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="overlays.css"> -->
+    <link rel="stylesheet" href="styles.css">
+    <script src="./game.js" defer></script>
+</head>
+
+<body>
+    <h1 class="center">Gompei's Grass Game</h1>
+    <h2 class="center" id="score">Score: 0</h2>
+    <div id="store-container">
+        <div class="store" name="Lawn" cost="5" onclick="buy(event.currentTarget)">
+            <div class="widget" reap="2" cooldown="0.5" auto="false" name="Lawn">
+                <p>Lawn</p>
+                <div class="overlay-slide" style="animation-duration: 0.5s;"></div>
+            </div>
+            <p>Lawn</p>
+            <p>5 points</p>
+            <p>+2 sqft</p>
+            <p>0.5s</p>
+        </div>
+        <div class="store" name="Gompei" cost="15" reap="10" cooldown="2.0" auto="true" src="./gompei.png"
+            onclick="buy(event.currentTarget)">
+            <div class="widget" reap="10" cooldown="2.0" auto="true" name="Gompei">
+                <img src="./gompei.png">
+                <div class="overlay-slide" style="animation-duration: 2s;"></div>
+            </div>
+            <p>Gompei</p>
+            <p>15 points</p>
+            <p>+10 sqft</p>
+            <p>2.0s</p>
+        </div>
+        <div class="store" name="Super-Gompei" cost="150" reap="100" cooldown="5.0" auto="true" src="./gompei.png"
+            onclick="buy(event.currentTarget)">
+            <div class="widget" reap="100" cooldown="5.0" auto="true" name="Super-Gompei">
+                <img src="./gompei.png" id="super-gompei">
+                <div class="overlay-slide" style="animation-duration: 5s;"></div>
+            </div>
+            <p>Super-Gompei</p>
+            <p>150 points</p>
+            <p>+100 sqft</p>
+            <p>5.0s</p>
+        </div>
+        <div class="store" name="Black Hole" cost="300" reap="200" cooldown="4.0" auto="true" src="./gompei.png"
+            onclick="buy(event.currentTarget)">
+            <div class="widget" reap="200" cooldown="4.0" auto="true" name="Black Hole">
+                <img src="./download3.jpg">
+                <div class="overlay-slide" style="animation-duration: 4s;"></div>
+            </div>
+            <p>Black Hole</p>
+            <p>300 points</p>
+            <p>+200 sqft</p>
+            <p>4.0s</p>
+        </div>
+        <div class="store" name="Super Nova" cost="10000" reap="2000" cooldown="8.0" auto="true" src="./gompei.png"
+            onclick="buy(event.currentTarget)">
+            <div class="widget" reap="2000" cooldown="8.0" auto="true" name="Super Nova">
+                <img src="./Crab_Nebula.jpg">
+                <div class="overlay-slide" style="animation-duration: 8s;"></div>
+            </div>
+            <p>Super Nova</p>
+            <p>10000 points</p>
+            <p>+2000 sqft</p>
+            <p>8.0s</p>
+        </div>
+        <div class="store" name="Reset" cost="99999999999999999999999999999999999" reap="11" cooldown="2.0" auto="true" src="./gompei.png"
+            onclick="buy(event.currentTarget)">
+            <div class="widget" reap="11" cooldown="2.0" auto="true" name="Reset">
+                <img src="./45i56l6sm1i91.jpg">
+                <div class="overlay-slide" style="animation-duration: 2s;"></div>
+            </div>
+            <p>Reset</p>
+            <p>99999999999999999999999999999999999 points</p>
+            <p>Error</p>
+            <p>Error</p>
+        </div>
+    </div>
+    <div id="widget-container"></div>
+
+</body>
+
+</html>
