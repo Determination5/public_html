@@ -44,7 +44,9 @@ const secretAlerts = {
     'clarah': 'REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO REPO',
     'hannah': 'The secret bangers',
     'damien' : 'Admit it.',
-    'iain' : 'Please do not hit me with your dictionary'
+    'iain' : 'Please do not hit me with your dictionary',
+    'joeyrus' : 'The memories are flooding back',
+    'kario mart' : 'Kario Mart'
 };
 
 // Listen for changes on the input field
