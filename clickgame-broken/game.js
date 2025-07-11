@@ -46,28 +46,26 @@ function buy(store) {
         document.body.style = "--gompei-count: " + super_gompei_count + ";"
     }
     if (store.getAttribute("name") === "Reset") {
-        const Reset = document.querySelector("#widget-container #Reset")?.parentElement;
-        Reset_count += 1;
         // If Reset enters
         if (Reset) {
             widget_container.innerHTML = "";
         }
-
-
-
-
-        // clone node for widget, and add to container
-        const widget = store.firstElementChild.cloneNode(true);
-        widget.onclick = () => {
-            harvest(widget);
-        }
-        widget_container.appendChild(widget);
-
-        if (widget.getAttribute("auto") == 'true') {
-            widget.setAttribute("harvesting", "");
-            setup_end_harvest(widget);
-        }
     }
+
+
+
+    // clone node for widget, and add to container
+    const widget = store.firstElementChild.cloneNode(true);
+    widget.onclick = () => {
+        harvest(widget);
+    }
+    widget_container.appendChild(widget);
+
+    if (widget.getAttribute("auto") == 'true') {
+        widget.setAttribute("harvesting", "");
+        setup_end_harvest(widget);
+    }
+
 }
 function setup_end_harvest(widget) {
     setTimeout(() => {
