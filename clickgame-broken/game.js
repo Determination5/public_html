@@ -50,8 +50,18 @@ function buy(store) {
         if (Reset) {
             widget_container.innerHTML = "";
         }
+        if (store.getAttribute("name") === "Heart-of-Silenced-Darkness") {
+            const heart_of_silenced_darkness = document.querySelector("#widget-container #heart_of_silenced_darkness")?.parentElement;
+            // If Super-Gompei already exists
+            heart_of_silenced_darknesscount += 1;
+            document.body.style = "--heart-of-silenced-darkness-count: " + heart_of_silenced_darkness_count + ";"
+            if (heart_of_silenced_darkness) {
+                heart_of_silenced_darkness.setAttribute("reap", (parseInt(heart_of_silenced_darkness.getAttribute("reap")) + 1000));
+                return;
+    
+            }
     }
-
+}
 
 
     // clone node for widget, and add to container
