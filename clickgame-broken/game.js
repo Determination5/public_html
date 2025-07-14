@@ -3,6 +3,8 @@ const stores = document.getElementsByClassName("store");
 const score_element = document.getElementById("score");
 let score = 5;
 let super_gompei_count = 0;
+let heart_of_silenced_darkness_count = 0;
+
 
 function changeScore(amount) {
     score += amount;
@@ -45,36 +47,42 @@ function buy(store) {
         super_gompei_count += 1;
         document.body.style = "--gompei-count: " + super_gompei_count + ";"
     }
+
+    if (store.getAttribute("name") === "Heart-Of-Silenced-Darkness") {
+        const heart_of_silenced_darkness = document.querySelector("#widget-container #heart-of-silenced-darkness")?.parentElement;
+        // If Heart-Of-Silenced-Darkness already exists
+        heart_of_silenced_darkness_count += 1;
+        document.body.style = "--heart-of-silenced-darkness-count: " + heart_of_silenced_darkness_count + ";"
+        if (heart_of_silenced_darkness) {
+            heart_of_silenced_darkness.setAttribute("reap", (parseInt(heart_of_silenced_darkness.getAttribute("reap")) + 1000));
+            return;
+
+        }
+
+        heart_of_silenced_darkness_count += 1;
+        document.body.style = "--heart-of-silenced-darkness-count: " + heart_of_silenced_darkness_count + ";"
+    }
+
     if (store.getAttribute("name") === "Reset") {
         // If Reset enters
         if (Reset) {
             widget_container.innerHTML = "";
         }
-        if (store.getAttribute("name") === "Heart-of-Silenced-Darkness") {
-            const heart_of_silenced_darkness = document.querySelector("#widget-container #heart_of_silenced_darkness")?.parentElement;
-            // If Super-Gompei already exists
-            heart_of_silenced_darknesscount += 1;
-            document.body.style = "--heart-of-silenced-darkness-count: " + heart_of_silenced_darkness_count + ";"
-            if (heart_of_silenced_darkness) {
-                heart_of_silenced_darkness.setAttribute("reap", (parseInt(heart_of_silenced_darkness.getAttribute("reap")) + 1000));
-                return;
-    
-            }
     }
+
+
+
+// clone node for widget, and add to container
+const widget = store.firstElementChild.cloneNode(true);
+widget.onclick = () => {
+    harvest(widget);
 }
+widget_container.appendChild(widget);
 
-
-    // clone node for widget, and add to container
-    const widget = store.firstElementChild.cloneNode(true);
-    widget.onclick = () => {
-        harvest(widget);
-    }
-    widget_container.appendChild(widget);
-
-    if (widget.getAttribute("auto") == 'true') {
-        widget.setAttribute("harvesting", "");
-        setup_end_harvest(widget);
-    }
+if (widget.getAttribute("auto") == 'true') {
+    widget.setAttribute("harvesting", "");
+    setup_end_harvest(widget);
+}
 
 }
 function setup_end_harvest(widget) {
