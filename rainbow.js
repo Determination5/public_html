@@ -46,7 +46,9 @@ const secretAlerts = {
     'damien' : 'Admit it.',
     'iain' : 'Please do not hit me with your dictionary',
     'joeyrus' : 'The memories are flooding back',
-    'kario mart' : 'Kario Mart'
+    'kario mart' : 'Kario Mart',
+    'infinite' : 'Limitless possibillities for the good or the bad. Infinite do be looking edgy though.',
+    'pokemon' : 'Gotta catch em a- HEY! GET BACK HERE! I NEED THAT RIGHT NOW!!'
 };
 
 // Listen for changes on the input field

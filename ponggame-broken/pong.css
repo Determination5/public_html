@@ -1,7 +1,8 @@
 body {
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
-    background-color: darkred;
+    background: #eb3f3f;
+    background: linear-gradient(90deg, rgba(235, 63, 63, 1) 0%, rgba(242, 97, 138, 1) 50%, rgba(232, 37, 164, 1) 100%);;
 }
 
 h1 {

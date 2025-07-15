@@ -28,7 +28,7 @@ div#tswsidecol {
 div#tswcontent {
 	float: right ;
 	width: 80% ;
-	color: #000 ;
+	color: #ffffff ;
 }
 @media only screen and (max-width: 629px) {
 	div#tswsidecol {
@@ -55,12 +55,12 @@ div#tswothersideproper {
 	padding-right: 5px ;
 }
 div#tswheader {
-	color: #000 ;
+	color: #ffffff ;
 	background-color: var(--brand-fallback);
 	background: var(--brand-gradient);
 }
 div#tswfooter {
-	color: #000 ;
+	color: #ffffff ;
 	background-color: var(--brand-fallback);
 	background: var(--brand-gradient);
 }

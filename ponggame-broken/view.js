@@ -17,7 +17,7 @@ function draw_game(model) {
 }
 
 function draw_ball(ctx, ball) {
-    ctx.fillStyle = "blue";
+    ctx.fillStyle = "red";
     ctx.strokestyle = "black";
     ctx.linewidth = 2;
 
