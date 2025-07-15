@@ -5,7 +5,8 @@
 
 body {
     --gompei-count: 1;
-    background-color: black;
+    background: #32326e;
+background: linear-gradient(90deg, rgba(50, 50, 110, 1) 0%, rgba(44, 28, 69, 1) 50%, rgba(60, 15, 77, 1) 100%);
     color: white;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }

@@ -54,7 +54,7 @@ function buy(store) {
         heart_of_silenced_darkness_count += 1;
         document.body.style = "--heart-of-silenced-darkness-count: " + heart_of_silenced_darkness_count + ";"
         if (heart_of_silenced_darkness) {
-            heart_of_silenced_darkness.setAttribute("reap", (parseInt(heart_of_silenced_darkness.getAttribute("reap")) + 1000));
+            heart_of_silenced_darkness.setAttribute("reap", (parseInt(heart_of_silenced_darkness.getAttribute("reap")) + 10000));
             return;
 
         }
