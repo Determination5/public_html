@@ -48,7 +48,8 @@ const secretAlerts = {
     'joeyrus' : 'The memories are flooding back',
     'kario mart' : 'Kario Mart',
     'infinite' : 'Limitless possibillities for the good or the bad. Infinite do be looking edgy though.',
-    'pokemon' : 'Gotta catch em a- HEY! GET BACK HERE! I NEED THAT RIGHT NOW!!'
+    'pokemon' : 'Gotta catch em a- HEY! GET BACK HERE! I NEED THAT RIGHT NOW!!',
+    'kole' : 'I feel bad every time Kole asks if I want to hang out but I have stuff going on or it is just too late.'
 };
 
 // Listen for changes on the input field
