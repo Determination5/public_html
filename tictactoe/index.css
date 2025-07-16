@@ -4,7 +4,7 @@
     aspect-ratio: 1/1;
     width: 75vh;
     border:solid 1px black;
-    background-image: url(download.jpg);
+    background-color: rgb(35, 35, 167);
 }
 
 .cell {
