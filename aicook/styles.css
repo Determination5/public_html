@@ -32,7 +32,7 @@ body {
 header {
     text-align: center; /* Centers all header content */
     margin-bottom: 40px; /* Spaces header from main content */
-    color: white; /* White text for contrast against gradient background */
+    color: rgb(0, 0, 0); /* White text for contrast against gradient background */
 }
 
 /* Main app title styling */
@@ -54,7 +54,7 @@ header p {
 
 /* Main content area - white card that contains all interactive elements */
 main {
-    background: white; /* Clean white background for contrast */
+    background: rgb(255, 255, 255); /* Clean white background for contrast */
     border-radius: 20px; /* Rounded corners for modern look */
     padding: 40px; /* Generous padding for comfortable content spacing */
     box-shadow: 0 20px 40px rgba(0,0,0,0.1); /* Subtle shadow for depth and elevation */
